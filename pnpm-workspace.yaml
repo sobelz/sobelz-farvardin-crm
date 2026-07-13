@@ -8,6 +8,11 @@ catalogMode: prefer
 
 catalog:
   "@types/node": ^24
+  "@types/pg": ^8.20.0
+  drizzle-kit: 1.0.0-rc.4
+  drizzle-orm: 1.0.0-rc.4
+  pg: ^8.22.0
+  tsx: ^4.23.0
   typescript: ^5.9.3
   valibot: ^1.4.2
   vite: npm:@voidzero-dev/vite-plus-core@0.2.4
@@ -22,4 +27,4 @@ peerDependencyRules:
 minimumReleaseAgeExclude:
   - hono@4.12.30
 allowBuilds:
-  esbuild: set this to true or false
+  esbuild: true

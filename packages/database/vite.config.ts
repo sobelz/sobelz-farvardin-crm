@@ -2,11 +2,11 @@ import { defineConfig } from "vite-plus";
 
 export default defineConfig({
   pack: {
+    exports: true,
     entry: {
       index: "src/index.ts",
-      schema: "src/schemas/index.ts",
+      schema: "src/schema.ts",
     },
-    exports: true,
   },
   lint: {
     options: {
