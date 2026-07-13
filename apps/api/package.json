@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hono/node-server": "^2.0.8",
+    "@sobelz-farvardin-crm/shared": "workspace:*",
     "hono": "^4.12.30"
   },
   "devDependencies": {
