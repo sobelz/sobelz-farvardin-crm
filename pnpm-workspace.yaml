@@ -7,8 +7,11 @@ packages:
 catalogMode: prefer
 
 catalog:
+  "@better-auth/drizzle-adapter": ^1.6.23
   "@types/node": ^24
   "@types/pg": ^8.20.0
+  better-auth: ^1.6.23
+  dotenv: ^17.4.2
   drizzle-kit: 1.0.0-rc.4
   drizzle-orm: 1.0.0-rc.4
   pg: ^8.22.0

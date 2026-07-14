@@ -11,6 +11,27 @@ export default defineConfig({
     options: { typeAware: true, typeCheck: true },
   },
   run: {
+    tasks: {
+      dev: {
+        command: [
+          "vp run --filter @sobelz-farvardin-crm/database --filter @sobelz-farvardin-crm/shared build",
+          "vp run --parallel --filter @sobelz-farvardin-crm/database --filter @sobelz-farvardin-crm/shared --filter @sobelz-farvardin-crm/api --filter @sobelz-farvardin-crm/web dev",
+        ],
+        cache: false,
+      },
+
+      build: {
+        command: "vp run -r build",
+      },
+
+      check: {
+        command: "vp check",
+      },
+
+      test: {
+        command: "vp test",
+      },
+    },
     cache: true,
   },
 });

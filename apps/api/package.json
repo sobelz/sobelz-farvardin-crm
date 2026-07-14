@@ -6,16 +6,29 @@
     "dev": "node --watch src/index.ts",
     "build": "vp pack src/index.ts --out-dir dist",
     "start": "node dist/index.mjs",
-    "lint": "vp lint"
+    "lint": "vp lint",
+    "db:push": "drizzle-kit push",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "node --env-file=.env --env-file-if-exists=.env.seed ./src/db/drizzle/seed.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:studio": "drizzle-kit studio --port 3003 --verbose",
+    "auth:generate": "npx @better-auth/cli@latest generate"
   },
   "dependencies": {
+    "@better-auth/drizzle-adapter": "catalog:",
     "@hono/node-server": "^2.0.8",
-    "@sobelz-farvardin-crm/database": "workspace:*",
     "@sobelz-farvardin-crm/shared": "workspace:*",
-    "hono": "^4.12.30"
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "drizzle-orm": "1.0.0-rc.4",
+    "hono": "^4.12.30",
+    "pg": "catalog:"
   },
   "devDependencies": {
     "@types/node": "catalog:",
+    "@types/pg": "catalog:",
+    "drizzle-kit": "1.0.0-rc.4",
+    "tsx": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plus": "catalog:"

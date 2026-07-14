@@ -9,4 +9,4 @@ export const Test = v.string();
 export const name = v.number();
 export type ContactInput = v.InferOutput<typeof ContactSchema>;
 
-export const valibot = v;
+export { v };
