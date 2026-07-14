@@ -8,6 +8,7 @@ catalogMode: prefer
 
 catalog:
   "@better-auth/drizzle-adapter": ^1.6.23
+  "@tailwindcss/vite": ^4.3.2
   "@types/node": ^24
   "@types/pg": ^8.20.0
   better-auth: ^1.6.23
@@ -15,6 +16,7 @@ catalog:
   drizzle-kit: 1.0.0-rc.4
   drizzle-orm: 1.0.0-rc.4
   pg: ^8.22.0
+  tailwindcss: ^4.3.2
   tsx: ^4.23.0
   typescript: ^5.9.3
   valibot: ^1.4.2
