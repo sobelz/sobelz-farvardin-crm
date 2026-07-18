@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test";
-import { v } from "../src/schemas/index.ts";
+import { v } from "../src/validations/index.ts";
 
 const NameSchema = v.object({
   name: v.pipe(v.string(), v.nonEmpty()),

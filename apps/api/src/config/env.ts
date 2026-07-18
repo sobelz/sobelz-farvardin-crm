@@ -1,4 +1,4 @@
-import { v } from "@sobelz-farvardin-crm/shared/schema";
+import { v } from "@sobelz-farvardin-crm/shared/validations";
 
 const EnvSchema = v.object({
   MODE: v.optional(
@@ -19,6 +19,7 @@ const EnvSchema = v.object({
   DB_URL: v.pipe(v.string(), v.nonEmpty()),
   DB_NAME: v.pipe(v.string(), v.nonEmpty()),
   BETTER_AUTH_SECRET: v.pipe(v.string(), v.minLength(10), v.nonEmpty()),
+  FRONTEND_ORIGIN: v.pipe(v.string(), v.nonEmpty()),
 });
 
 type Env = v.InferOutput<typeof EnvSchema>;

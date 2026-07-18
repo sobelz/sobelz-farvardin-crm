@@ -4,7 +4,7 @@ export default defineConfig({
   pack: {
     entry: {
       index: "src/index.ts",
-      schema: "src/schemas/index.ts",
+      validations: "src/validations/index.ts",
     },
     exports: true,
   },

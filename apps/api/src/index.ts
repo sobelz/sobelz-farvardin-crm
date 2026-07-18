@@ -1,41 +1,24 @@
 import { serve } from "@hono/node-server";
-import { Hono } from "hono";
-import { auth } from "#/lib/auth";
 
-const app = new Hono<{
-  Variables: {
-    user: typeof auth.$Infer.Session.user | null;
-    session: typeof auth.$Infer.Session.session | null;
-  };
-}>();
-app.use("*", async (c, next) => {
-  const session = await auth.api.getSession({ headers: c.req.raw.headers });
-  if (!session) {
-    c.set("user", null);
-    c.set("session", null);
-    await next();
-    return;
-  }
-  c.set("user", session.user);
-  c.set("session", session.session);
-  await next();
-});
-
-app.on(["POST", "GET"], "/api/auth/*", (c) => {
-  return auth.handler(c.req.raw);
-});
-
-app.get("/", (c) => {
-  console.log(c.var.user);
-  return c.text("Hello Hono!");
-});
+import app, { enableRoutes } from "./app.ts";
+import env from "./config/env.ts";
+import { getLocalIPs } from "./utils/getLocalIps.ts";
 
 serve(
   {
     fetch: app.fetch,
-    port: 3000,
+    port: env.PORT,
+    hostname: env.MODE === "development" ? "0.0.0.0" : "",
   },
   (info) => {
-    console.log(`Server is running on http://localhost:${info.port}`);
+    if (env.MODE === "development") {
+      getLocalIPs().forEach((ip) => {
+        console.log(`👉 http://${ip}:${info.port}`);
+      });
+    } else {
+      console.log(`Server is running on http://${info.address[0]}:${info.port}`);
+    }
   },
 );
+
+enableRoutes();

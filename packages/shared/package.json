@@ -18,7 +18,7 @@
   "type": "module",
   "exports": {
     ".": "./dist/index.mjs",
-    "./schema": "./dist/schema.mjs",
+    "./validations": "./dist/validations.mjs",
     "./package.json": "./package.json"
   },
   "publishConfig": {

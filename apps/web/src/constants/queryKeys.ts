@@ -1,0 +1,17 @@
+export const QueryKes = {
+  device: ["devices"],
+  deviceStatus: ["devices", "status"],
+  contacts: ["contacts"],
+  contactGroups: ["contact-groups"],
+  customField: ["custom-fields"],
+  media: ["media"],
+  templateMessage: ["templates-message"],
+  messages: ["messages"],
+  campaign: ["campaigns"],
+  chatBot: ["chatBots"],
+  apiKey: ["apiKeys"],
+  user: ["users"],
+  plan: ["plans"],
+  subscription: ["subscriptions"],
+  account: ["account", "sessions"],
+};
