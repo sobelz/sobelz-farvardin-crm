@@ -23,6 +23,7 @@ const EnvSchema = v.object({
   ADMIN_EMAIL: v.pipe(v.string(), v.email(), v.nonEmpty()),
   ADMIN_PASSWORD: v.pipe(v.string(), v.minLength(8)),
   ADMIN_NAME: v.pipe(v.string(), v.nonEmpty()),
+  CAPTCHA_SECRET_KEY: v.pipe(v.string(), v.nonEmpty()),
 });
 
 type Env = v.InferOutput<typeof EnvSchema>;

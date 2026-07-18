@@ -5,6 +5,7 @@ import { ProtectedRoute, RedirectIfIsLoggedIn } from "@/pages/auth/protected";
 import { AuthRoutes } from "@/pages/auth/routes";
 
 import App from "../App";
+import { DashboardRoutes } from "@/pages/main/dashboard/route";
 
 export default createBrowserRouter([
   {
@@ -16,7 +17,7 @@ export default createBrowserRouter([
         children: [
           {
             Component: DashboardLayout,
-            children: [],
+            children: [DashboardRoutes],
           },
         ],
       },
