@@ -7,7 +7,7 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 const DashboardLayout = () => {
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <AppSidebar side="right" />
       <SidebarInset className="overflow-hidden">
         <MainHeader />
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

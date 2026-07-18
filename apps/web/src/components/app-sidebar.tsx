@@ -2,39 +2,143 @@
 
 import * as React from "react";
 
-import { NavMenu } from "@/components/nav-main";
+import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  SidebarRail,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { AdminNav, MainNav } from "@/constants/sidebar";
-import { useSessionQuery } from "@/hooks/queries/auth";
+import {
+  RiTerminalBoxLine,
+  RiRobotLine,
+  RiBookOpenLine,
+  RiSettingsLine,
+  RiCommandLine,
+} from "@remixicon/react";
 
-import AppInfo from "./app-info";
-import { ScrollArea } from "./ui/scroll-area";
-
+const data = {
+  user: {
+    name: "shadcn",
+    email: "m@example.com",
+    avatar: "/avatars/shadcn.jpg",
+  },
+  navMain: [
+    {
+      title: "Playground",
+      url: "#",
+      icon: <RiTerminalBoxLine />,
+      isActive: true,
+      items: [
+        {
+          title: "History",
+          url: "#",
+        },
+        {
+          title: "Starred",
+          url: "#",
+        },
+        {
+          title: "Settings",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Models",
+      url: "#",
+      icon: <RiRobotLine />,
+      items: [
+        {
+          title: "Genesis",
+          url: "#",
+        },
+        {
+          title: "Explorer",
+          url: "#",
+        },
+        {
+          title: "Quantum",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Documentation",
+      url: "#",
+      icon: <RiBookOpenLine />,
+      items: [
+        {
+          title: "Introduction",
+          url: "#",
+        },
+        {
+          title: "Get Started",
+          url: "#",
+        },
+        {
+          title: "Tutorials",
+          url: "#",
+        },
+        {
+          title: "Changelog",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Settings",
+      url: "#",
+      icon: <RiSettingsLine />,
+      items: [
+        {
+          title: "General",
+          url: "#",
+        },
+        {
+          title: "Team",
+          url: "#",
+        },
+        {
+          title: "Billing",
+          url: "#",
+        },
+        {
+          title: "Limits",
+          url: "#",
+        },
+      ],
+    },
+  ],
+};
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { data } = useSessionQuery();
   return (
-    <Sidebar side="right" variant="inset" collapsible="icon" {...props}>
+    <Sidebar variant="inset" {...props}>
       <SidebarHeader>
-        <AppInfo />
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton size="lg" render={<a href="#" />}>
+              <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                <RiCommandLine className="size-4" />
+              </div>
+              <div className="grid flex-1 text-start text-sm leading-tight">
+                <span className="truncate font-medium">Acme Inc</span>
+                <span className="truncate text-xs">Enterprise</span>
+              </div>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent className="pe-2">
-        <ScrollArea dir="rtl" className="max-h-full">
-          <NavMenu items={MainNav} title="منو اصلی" />
-          {data?.data?.user?.role === "admin" && <NavMenu items={AdminNav} title="منو ادمین" />}
-          {/* <NavProjects projects={projects} /> */}
-        </ScrollArea>
+      <SidebarContent>
+        <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser />
+        <NavUser user={data.user} />
       </SidebarFooter>
-      <SidebarRail />
     </Sidebar>
   );
 }
