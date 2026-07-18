@@ -6,6 +6,7 @@
     "skipLibCheck": true,
     "noEmit": true,
     "verbatimModuleSyntax": false,
+    "allowJs": true,
     "rewriteRelativeImportExtensions": true,
     "types": ["node"],
     "jsx": "react-jsx",

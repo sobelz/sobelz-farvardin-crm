@@ -2,6 +2,10 @@
   "name": "@sobelz-farvardin-crm/api",
   "private": true,
   "type": "module",
+  "imports": {
+    "#/*.js": "./src/*.js",
+    "#/*": "./src/*.ts"
+  },
   "scripts": {
     "dev": "node --watch src/index.ts",
     "build": "vp pack src/index.ts --out-dir dist",
