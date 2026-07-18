@@ -13,13 +13,13 @@
     "lint": "vp lint",
     "db:push": "drizzle-kit push",
     "db:migrate": "drizzle-kit migrate",
-    "db:seed": "node --env-file=.env --env-file-if-exists=.env.seed ./src/db/drizzle/seed.ts",
+    "db:seed": "node --env-file=.env ./src/db/drizzle/seed.ts",
     "db:generate": "drizzle-kit generate",
     "db:studio": "drizzle-kit studio --port 3003 --verbose",
     "auth:generate": "npx @better-auth/cli@latest generate"
   },
   "dependencies": {
-    "@better-auth/drizzle-adapter": "catalog:",
+    "@better-auth/drizzle-adapter": "^1.6.23",
     "@hono/node-server": "^2.0.8",
     "@sobelz-farvardin-crm/shared": "workspace:*",
     "better-auth": "catalog:",

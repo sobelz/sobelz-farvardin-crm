@@ -7,6 +7,10 @@ export const useLogin = () => {
   const { mutateAsync, isPending } = useLoginMutate();
   const { handleSubmit, control } = useForm({
     resolver: valibotResolver(LoginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
   const onSubmit = handleSubmit(async (input) => {
     const { data } = await mutateAsync(input);
