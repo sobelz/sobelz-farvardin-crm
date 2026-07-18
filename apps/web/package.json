@@ -10,10 +10,19 @@
     "preview": "vp preview"
   },
   "dependencies": {
+    "@base-ui/react": "catalog:",
+    "@fontsource-variable/eb-garamond": "catalog:",
+    "@fontsource-variable/noto-sans": "catalog:",
+    "@remixicon/react": "catalog:",
     "@tailwindcss/vite": "catalog:",
+    "class-variance-authority": "catalog:",
+    "clsx": "catalog:",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "tailwindcss": "catalog:"
+    "shadcn": "catalog:",
+    "tailwind-merge": "catalog:",
+    "tailwindcss": "catalog:",
+    "tw-animate-css": "catalog:"
   },
   "devDependencies": {
     "@types/node": "^24.13.2",
