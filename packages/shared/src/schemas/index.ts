@@ -1,4 +1,4 @@
-import * as v from "valibot";
+import { v } from "../lib/valibot.ts";
 
 export const CreateContact = v.object({
   name: v.string(),
