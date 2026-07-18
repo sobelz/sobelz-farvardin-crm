@@ -16,7 +16,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { RiMoreLine, RiFolderLine, RiShareLine, RiDeleteBinLine } from "@remixicon/react";
+import { RiMoreLine, RiFolderLine, RiShareForwardLine, RiDeleteBinLine } from "@remixicon/react";
 
 export function NavProjects({
   projects,
@@ -46,21 +46,21 @@ export function NavProjects({
                 <span className="sr-only">More</span>
               </DropdownMenuTrigger>
               <DropdownMenuContent
-                className="w-48"
+                className="w-fit"
                 side={isMobile ? "bottom" : "right"}
                 align={isMobile ? "end" : "start"}
               >
                 <DropdownMenuItem>
-                  <RiFolderLine className="text-muted-foreground" />
+                  <RiFolderLine />
                   <span>View Project</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <RiShareLine className="text-muted-foreground" />
+                  <RiShareForwardLine />
                   <span>Share Project</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <RiDeleteBinLine className="text-muted-foreground" />
+                <DropdownMenuItem variant="destructive">
+                  <RiDeleteBinLine />
                   <span>Delete Project</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -68,8 +68,8 @@ export function NavProjects({
           </SidebarMenuItem>
         ))}
         <SidebarMenuItem>
-          <SidebarMenuButton>
-            <RiMoreLine />
+          <SidebarMenuButton className="text-sidebar-foreground/70">
+            <RiMoreLine className="text-sidebar-foreground/70" />
             <span>More</span>
           </SidebarMenuButton>
         </SidebarMenuItem>

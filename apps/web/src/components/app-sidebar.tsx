@@ -3,30 +3,53 @@
 import * as React from "react";
 
 import { NavMain } from "@/components/nav-main";
+import { NavProjects } from "@/components/nav-projects";
 import { NavUser } from "@/components/nav-user";
+import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
+  SidebarRail,
 } from "@/components/ui/sidebar";
 import {
+  RiGalleryLine,
+  RiPulseLine,
+  RiCommandLine,
   RiTerminalBoxLine,
   RiRobotLine,
   RiBookOpenLine,
   RiSettingsLine,
-  RiCommandLine,
+  RiCropLine,
+  RiPieChartLine,
+  RiMapLine,
 } from "@remixicon/react";
 
+// This is sample data.
 const data = {
   user: {
     name: "shadcn",
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
+  teams: [
+    {
+      name: "Acme Inc",
+      logo: <RiGalleryLine />,
+      plan: "Enterprise",
+    },
+    {
+      name: "Acme Corp.",
+      logo: <RiPulseLine />,
+      plan: "Startup",
+    },
+    {
+      name: "Evil Corp.",
+      logo: <RiCommandLine />,
+      plan: "Free",
+    },
+  ],
   navMain: [
     {
       title: "Playground",
@@ -114,31 +137,39 @@ const data = {
       ],
     },
   ],
+  projects: [
+    {
+      name: "Design Engineering",
+      url: "#",
+      icon: <RiCropLine />,
+    },
+    {
+      name: "Sales & Marketing",
+      url: "#",
+      icon: <RiPieChartLine />,
+    },
+    {
+      name: "Travel",
+      url: "#",
+      icon: <RiMapLine />,
+    },
+  ],
 };
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar variant="inset" {...props}>
+    <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" render={<a href="#" />}>
-              <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                <RiCommandLine className="size-4" />
-              </div>
-              <div className="grid flex-1 text-start text-sm leading-tight">
-                <span className="truncate font-medium">Acme Inc</span>
-                <span className="truncate text-xs">Enterprise</span>
-              </div>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
+        <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
       </SidebarFooter>
+      <SidebarRail />
     </Sidebar>
   );
 }

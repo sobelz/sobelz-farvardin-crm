@@ -30,6 +30,15 @@ export const MainNav: SidebarMainMenu[] = [
     url: "/",
     icon: RiDashboardLine,
   },
+  {
+    base: "organizations/*",
+    title: "سازمان ها",
+    icon: RiUserLine,
+    items: [
+      { title: "همه سازمان ها", url: "organizations/" },
+      { title: "ایجاد سازمان", url: "organizations/add/" },
+    ],
+  },
 ];
 export const AdminNav: SidebarMainMenu[] = [
   {
