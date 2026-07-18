@@ -18,7 +18,7 @@ app.use(
 );
 
 app.use("/uploads/*", serveStatic({ root: "./src" }));
-const API_ROUTE_PREFIX = "/api/v1/";
+const API_ROUTE_PREFIX = "/api/";
 
 export const enableRoutes = () => {
   routes.onError(apiErrorHandler);
