@@ -2,9 +2,9 @@ import Logo from "@/assets/images/logo.webp";
 
 export const AppData = {
   logo: Logo,
-  title: "جت لاینز",
-  shortDescription: "پنل پیام‌ رسان تحت وب",
-  logoLink: "https://jetlinez.com",
+  title: "CRM",
+  shortDescription: "مدیریت ارتباط با مشتری",
+  logoLink: "https://sobelz.com",
 };
 
 export type Service = "api" | "campaign" | "chat-bot" | "media";

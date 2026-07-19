@@ -18,18 +18,20 @@ const ThemeToggler = () => {
           <Kbd>D</Kbd>
         </KbdGroup>
       </TooltipContent>
-      <TooltipTrigger>
-        <Button
-          size="icon"
-          className={cn("size-7")}
-          data-sidebar="trigger"
-          variant="ghost"
-          data-slot="sidebar-trigger"
-          onClick={toggleTheme}
-        >
-          <RiSunCloudyFill />
-          <span className="sr-only">Toggle Sidebar</span>
-        </Button>
+      <TooltipTrigger
+        render={
+          <Button
+            size="icon"
+            className={cn("size-7")}
+            data-sidebar="trigger"
+            variant="ghost"
+            data-slot="sidebar-trigger"
+            onClick={toggleTheme}
+          />
+        }
+      >
+        <RiSunCloudyFill />
+        <span className="sr-only">Toggle Sidebar</span>
       </TooltipTrigger>
     </Tooltip>
   );

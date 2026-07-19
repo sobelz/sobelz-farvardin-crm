@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/noto-sans";
 @import "@fontsource-variable/eb-garamond";
+@import "./fonts.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -116,6 +117,7 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --font-display: "Yekan Bakh FaNum";
 }
 
 @layer base {
@@ -123,9 +125,33 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-display;
   }
   html {
-    @apply font-sans;
+    @apply font-display;
+  }
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+@utility dir-rtl {
+  direction: rtl;
+}
+@utility dir-ltr {
+  direction: ltr;
+}
+@utility center {
+  @apply flex items-center justify-center;
+}
+@utility container {
+  @apply mx-auto;
+}
+@layer components {
+  .link-indicator {
+    @apply before:w-0 before:bg-primary before:z-10 relative before:h-full before:absolute before:inset-s-0 before:rounded-e-full transition-all before:transition-all;
+    &.active-link {
+      @apply before:w-1 ps-2;
+    }
   }
 }

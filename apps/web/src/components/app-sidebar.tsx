@@ -3,9 +3,7 @@
 import * as React from "react";
 
 import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
 import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
@@ -25,6 +23,8 @@ import {
   RiPieChartLine,
   RiMapLine,
 } from "@remixicon/react";
+import AppInfo from "./app-info";
+import { MainNav } from "@/constants/sidebar";
 
 // This is sample data.
 const data = {
@@ -160,11 +160,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <AppInfo />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavMain items={MainNav} title="منو اصلی" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

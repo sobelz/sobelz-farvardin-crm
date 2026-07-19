@@ -6,6 +6,7 @@ import { AuthRoutes } from "@/pages/auth/routes";
 
 import App from "../App";
 import { DashboardRoutes } from "@/pages/main/dashboard/route";
+import { OrganizationRoutes } from "@/pages/main/organizations/route";
 
 export default createBrowserRouter([
   {
@@ -17,7 +18,7 @@ export default createBrowserRouter([
         children: [
           {
             Component: DashboardLayout,
-            children: [DashboardRoutes],
+            children: [DashboardRoutes, OrganizationRoutes],
           },
         ],
       },
