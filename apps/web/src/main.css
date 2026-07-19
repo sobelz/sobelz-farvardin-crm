@@ -4,6 +4,7 @@
 @import "@fontsource-variable/noto-sans";
 @import "@fontsource-variable/eb-garamond";
 @import "./fonts.css";
+@import "./typeset.css";
 
 @custom-variant dark (&:is(.dark *));
 
